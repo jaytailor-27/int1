@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  
 </head>
 <body>
   <header>
@@ -17,7 +16,11 @@
   </header>
 
   <main>
-    <h2>Suggested Developers from <%= user.city %>:</h2>
+    <% if (user && user.city) { %>
+      <h2>Suggested Developers from <%= user.city %>:</h2>
+    <% } else { %>
+      <h2>Suggested Developers:</h2>
+    <% } %>
     <ul>
       <% suggestions.forEach(developer => { %>
         <li><%= developer.name %> - <%= developer.registrationCode %></li>
@@ -26,4 +29,3 @@
   </main>
 </body>
 </html>
-
